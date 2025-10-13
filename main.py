@@ -1,5 +1,12 @@
+import sys
+from PyQt6.QtWidgets import QApplication, QWidget
+
+
 def main():
-    print("Hello from detect-violation-safety!")
+    app = QApplication(sys.argv)
+    window = QWidget()
+    window.show()
+    app.exec()
 
 
 if __name__ == "__main__":
