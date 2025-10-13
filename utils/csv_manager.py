@@ -18,7 +18,7 @@ class CsvManager:
 
     def _write_headers(self) -> None:
         with open(self.file_path, "w") as f:
-            headers = [""]  # will add the all the require headers
+            headers = [""]  # will add the all the required headers
             write = csv.DictWriter(f, fieldnames=headers)
 
             write.writeheader()
