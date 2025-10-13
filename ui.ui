@@ -16,6 +16,45 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+
+  <!-- added color styling -->
+  <property name="styleSheet">
+   <string notr="true">
+    QDialog {
+        background-color: #1e1e2f;
+        color: #ffffff;
+    }
+    QLabel {
+        color: #e5e5e5;
+    }
+    QLabel#label {
+        color: #60a5fa;
+    }
+    QLabel#label_2, QLabel#label_3 {
+        color: #93c5fd;
+    }
+    QPushButton {
+        background-color: green;
+        color: white;
+        border-radius: 5px;
+        padding: 5px;
+    }
+    QPushButton:hover {
+        background-color: #2d2d3a;
+    }
+    QPushButton:pressed {
+        background-color: white;
+        color: black;
+    }
+    QTextBrowser {
+        background-color: #2d2d3a;
+        color: #e5e5e5;
+        border: 1px solid #3b3b4f;
+        border-radius: 6px;
+    }
+   </string>
+  </property>
+
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
