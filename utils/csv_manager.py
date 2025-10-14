@@ -7,7 +7,7 @@ from .logger import logger
 class CsvManager:
     def __init__(self) -> None:
         logger.info("csv manager object was initialized")
-        self.result_folder: str = "reports"
+        self.result_folder: str = "./reports"
         self.file_path = self._get_file_path()
 
     def set_up_report_file(self):
@@ -17,7 +17,7 @@ class CsvManager:
         # this is the method user another function will call, so every time we need to generate a report, system will call only this method
 
     def _get_file_path(self) -> str:
-        file_name: str = f"result_{str(datetime.now())}.csv"
+        file_name: str = f"result_{str(datetime.now())}.csv".replace(" ", "_")
         file_path: str = f"{self.result_folder}/{file_name}"
         logger.info(f"file path for new report: {file_path}")
         return file_path
