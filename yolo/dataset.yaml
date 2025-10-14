@@ -1,0 +1,6 @@
+path: ./yolo/dataset
+train: images
+val: images
+
+nc: 2
+names: ['Mask', 'No Mask']
