@@ -9,6 +9,9 @@ For unix type systems
  - .venv\Scripts\activate
  - pip install -r requirements.txt
 
+ YOLOv8
+ - pip install ultralytics
+
 
  # Tech Stack 
   - PyQt6
