@@ -16,6 +16,11 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+<<<<<<< HEAD
+=======
+
+  <!-- added color styling -->
+>>>>>>> 1c3382658d6091fc3dc89db5b799d673644fc330
   <property name="styleSheet">
    <string notr="true">
     QDialog {
@@ -52,7 +57,12 @@
     }
    </string>
   </property>
+<<<<<<< HEAD
   <widget class="QPushButton" name="btn_choose_file">
+=======
+
+  <widget class="QPushButton" name="pushButton">
+>>>>>>> 1c3382658d6091fc3dc89db5b799d673644fc330
    <property name="geometry">
     <rect>
      <x>40</x>

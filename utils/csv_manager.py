@@ -1,27 +1,48 @@
 import csv
 from pathlib import Path
+from datetime import datetime
+from .logger import logger
 
 
 class CsvManager:
     def __init__(self) -> None:
-        self.file_path: str = (
-            ""  # will change later, just don't know what exectly will do with it
-        )
+        logger.info("csv manager object was initialized")
+        self.result_folder: str = "./reports"
+        self.file_path = self._get_file_path()
 
     def set_up_report_file(self):
+        """Initialize a CSV report file with headers."""
         self._create_report_file()
         self._write_headers()
+        # this is the method user another function will call, so every time we need to generate a report, system will call only this method
+
+    def _get_file_path(self) -> str:
+        file_name: str = f"result_{str(datetime.now())}.csv".replace(" ", "_")
+        file_path: str = f"{self.result_folder}/{file_name}"
+        logger.info(f"file path for new report: {file_path}")
+        return file_path
+
 
     def _create_report_file(self) -> str:
-        Path(self.file_path).touch
-        return self.file_path
+        logger.info("creating report file")
+        """Create an empty CSV file if it doesn’t exist."""
+        path = Path(self.file_path)
+        path.touch(exist_ok=True)
+        return str(path)
 
-    def _write_headers(self) -> None:
-        with open(self.file_path, "w") as f:
-            headers = [""]  # will add the all the required headers
-            write = csv.DictWriter(f, fieldnames=headers)
-
-            write.writeheader()
+    def _write_headers(self):
+        """Write CSV headers to the file."""
+        headers = [
+            "filename",
+            "timestamp",
+            "video frame number",
+            "type violation",
+            "accuracy",
+        ]
+        logger.info(f"start writing the headers for csv report file: {headers}")
+        with open(self.file_path, "w", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=headers)
+            writer.writeheader()
 
 
 csv_manager = CsvManager()
