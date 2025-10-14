@@ -22,6 +22,7 @@ class CsvManager:
         logger.info(f"file path for new report: {file_path}")
         return file_path
 
+
     def _create_report_file(self) -> str:
         logger.info("creating report file")
         """Create an empty CSV file if it doesn’t exist."""
