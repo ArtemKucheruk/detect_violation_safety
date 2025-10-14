@@ -16,27 +16,63 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <property name="styleSheet">
+   <string notr="true">
+    QDialog {
+        background-color: #1e1e2f;
+        color: #ffffff;
+    }
+    QLabel {
+        color: #e5e5e5;
+    }
+    QLabel#label {
+        color: #60a5fa;
+    }
+    QLabel#label_2, QLabel#label_3 {
+        color: #93c5fd;
+    }
+    QPushButton {
+        background-color: green;
+        color: white;
+        border-radius: 5px;
+        padding: 5px;
+    }
+    QPushButton:hover {
+        background-color: #2d2d3a;
+    }
+    QPushButton:pressed {
+        background-color: white;
+        color: black;
+    }
+    QTextBrowser {
+        background-color: #2d2d3a;
+        color: #e5e5e5;
+        border: 1px solid #3b3b4f;
+        border-radius: 6px;
+    }
+   </string>
+  </property>
+  <widget class="QPushButton" name="btn_choose_file">
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>200</y>
+     <y>210</y>
      <width>93</width>
      <height>28</height>
     </rect>
    </property>
    <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
+    <cursorShape>ArrowCursor</cursorShape>
    </property>
    <property name="text">
     <string>Choose file</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="btn_analyze">
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>200</y>
+     <y>210</y>
      <width>93</width>
      <height>28</height>
     </rect>
@@ -49,17 +85,17 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>240</y>
+     <y>390</y>
      <width>991</width>
-     <height>301</height>
+     <height>161</height>
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="btn_save">
    <property name="geometry">
     <rect>
      <x>260</x>
-     <y>200</y>
+     <y>210</y>
      <width>93</width>
      <height>28</height>
     </rect>
@@ -83,7 +119,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Detect Violataion Safety</string>
+    <string>Detect Violation Safety</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -108,7 +144,7 @@
    <property name="geometry">
     <rect>
      <x>600</x>
-     <y>30</y>
+     <y>40</y>
      <width>151</width>
      <height>41</height>
     </rect>
@@ -129,7 +165,7 @@
    <property name="geometry">
     <rect>
      <x>610</x>
-     <y>60</y>
+     <y>80</y>
      <width>151</width>
      <height>41</height>
     </rect>
@@ -147,7 +183,7 @@
    <property name="geometry">
     <rect>
      <x>610</x>
-     <y>90</y>
+     <y>110</y>
      <width>161</width>
      <height>41</height>
     </rect>
@@ -165,7 +201,7 @@
    <property name="geometry">
     <rect>
      <x>610</x>
-     <y>180</y>
+     <y>200</y>
      <width>161</width>
      <height>41</height>
     </rect>
@@ -183,7 +219,7 @@
    <property name="geometry">
     <rect>
      <x>610</x>
-     <y>120</y>
+     <y>140</y>
      <width>161</width>
      <height>41</height>
     </rect>
@@ -201,7 +237,7 @@
    <property name="geometry">
     <rect>
      <x>610</x>
-     <y>150</y>
+     <y>170</y>
      <width>161</width>
      <height>41</height>
     </rect>
@@ -215,11 +251,11 @@
     <string>File owner:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_9">
+  <widget class="QLabel" name="lb_date">
    <property name="geometry">
     <rect>
      <x>750</x>
-     <y>60</y>
+     <y>80</y>
      <width>241</width>
      <height>41</height>
     </rect>
@@ -233,11 +269,11 @@
     <string>13.10.2025</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_10">
+  <widget class="QLabel" name="lb_time">
    <property name="geometry">
     <rect>
      <x>750</x>
-     <y>90</y>
+     <y>110</y>
      <width>241</width>
      <height>41</height>
     </rect>
@@ -251,11 +287,11 @@
     <string>0:00h</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_11">
+  <widget class="QLabel" name="lb_location">
    <property name="geometry">
     <rect>
      <x>750</x>
-     <y>120</y>
+     <y>140</y>
      <width>241</width>
      <height>41</height>
     </rect>
@@ -269,11 +305,11 @@
     <string>C:\Program Files (x86)</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_12">
+  <widget class="QLabel" name="lb_owner">
    <property name="geometry">
     <rect>
      <x>750</x>
-     <y>150</y>
+     <y>170</y>
      <width>241</width>
      <height>41</height>
     </rect>
@@ -287,11 +323,11 @@
     <string>detect_violation_safety_user</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_13">
+  <widget class="QLabel" name="lb_size">
    <property name="geometry">
     <rect>
      <x>750</x>
-     <y>180</y>
+     <y>200</y>
      <width>241</width>
      <height>41</height>
     </rect>
@@ -308,8 +344,8 @@
   <widget class="QLabel" name="label_14">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>170</y>
+     <x>40</x>
+     <y>180</y>
      <width>311</width>
      <height>16</height>
     </rect>
@@ -324,6 +360,16 @@
    </property>
    <property name="text">
     <string>pathToFile</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>260</y>
+     <width>991</width>
+     <height>131</height>
+    </rect>
    </property>
   </widget>
  </widget>
