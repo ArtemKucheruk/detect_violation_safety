@@ -8,7 +8,8 @@ from utils import logger
 
 class InitWindow(QDialog):
     def choose_file(self):
-        MenuFuncs.choose_file()
+        file_name = MenuFuncs.choose_file()
+        # print(file_name)
 
     def __init__(self):
         super().__init__()

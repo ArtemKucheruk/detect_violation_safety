@@ -15,6 +15,7 @@ class MenuFuncs:
         )
 
         print(file_name)
+        return file_name
         # options = QFileDialog.Option.DontUseNativeDialog
         # file_name, _ = QFileDialog.getOpenFileName(
         #     None,
