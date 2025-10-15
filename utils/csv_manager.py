@@ -17,11 +17,12 @@ class CsvManager:
             llm_analyze_result
         )  # need to finish this method to send right data for the report file
 
-    def _write_analyze_report(self, row: list[str]) -> None:
+    def _write_analyze_report(self, violation_results: list[str]) -> None:
         with open(self.file_path, "a") as f:
-            writer = csv.writer(f)
-            writer.writerow(row)
-            f.close()
+            for violation_row in violation_results:
+                writer = csv.writer(f)
+                writer.writerow(violation_row)
+                f.close()
 
     def _get_file_path(self, video_name: str) -> str:
         file_name: str = f"{video_name}_result_{str(datetime.now())}.csv".replace(
