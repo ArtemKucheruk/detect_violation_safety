@@ -1,6 +1,5 @@
-path: ./yolo/dataset
-train: images
-val: images
+train: C:/Users/tamse/PycharmProjects/detect_violation_safety/dataset/images
+val: C:/Users/tamse/PycharmProjects/detect_violation_safety/dataset/images
 
 nc: 2
-names: ['Mask', 'No Mask']
+names: ['helmet', 'no_helmet']
