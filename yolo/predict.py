@@ -1,4 +1,5 @@
 from ultralytics import YOLO
+from utils import csv_manager
 
 
 class LlmAnalyze:
