@@ -1,0 +1,10 @@
+train: dataset/images/train
+val: dataset/images/val
+
+nc: 5
+names:
+  0: Mask
+  1: No Mask
+  2: Person
+  3: Helmet
+  4: No Helmet
