@@ -9,11 +9,19 @@ class CsvManager:
         logger.info("csv manager object was initialized")
         self.result_folder: str = "./reports"
 
-    def set_up_report_file(self, video_name):
+    def set_up_report_file(self, video_name, llm_analyze_result: list[str]):
         """Initialize a CSV report file with headers."""
         self._create_report_file(video_name)
         self._write_headers()
-        # this is the method user another function will call, so every time we need to generate a report, system will call only this method
+        self._write_analyze_report(
+            llm_analyze_result
+        )  # need to finish this method to send right data for the report file
+
+    def _write_analyze_report(self, row: list[str]) -> None:
+        with open(self.file_path, "a") as f:
+            writer = csv.writer(f)
+            writer.writerow(row)
+            f.close()
 
     def _get_file_path(self, video_name: str) -> str:
         file_name: str = f"{video_name}_result_{str(datetime.now())}.csv".replace(
