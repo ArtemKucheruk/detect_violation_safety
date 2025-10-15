@@ -13,4 +13,7 @@ wheels/
 logs/
 *.log
 
+# folders with the results
 reports/
+video_results/
+
