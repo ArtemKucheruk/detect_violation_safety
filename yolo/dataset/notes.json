@@ -1,0 +1,29 @@
+{
+  "categories": [
+    {
+      "id": 0,
+      "name": "Helmet"
+    },
+    {
+      "id": 1,
+      "name": "Mask"
+    },
+    {
+      "id": 2,
+      "name": "No Helmet"
+    },
+    {
+      "id": 3,
+      "name": "No Mask"
+    },
+    {
+      "id": 4,
+      "name": "Person"
+    }
+  ],
+  "info": {
+    "year": 2025,
+    "version": "1.0",
+    "contributor": "Label Studio"
+  }
+}

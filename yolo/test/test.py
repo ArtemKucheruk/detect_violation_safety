@@ -7,10 +7,10 @@ import math
 cap = cv2.VideoCapture('Work without a protective mask.mp4')
 
 # Load trained YOLO model
-model = YOLO('C:/Users/tamsee/PycharmProjects/detect_violation_safety/output/train10/weights/best.pt')
+model = YOLO('C:/Users/tamsee/PycharmProjects/detect_violation_safety/output/train18/weights/best.pt')
 
 # Class names (must match model's training order)
-classnames = ['Helmet', 'Mask', 'No Helmet', 'No Mask', 'Person']
+classnames = ['Helmet', 'Mask', 'No Helmet', 'No Mask', 'Person','Machine']
 
 # Colors for each class (BGR format)
 colors = {
@@ -29,8 +29,8 @@ while True:
     if not ret:
         break
 
-    # Run inference with confidence threshold
-    results = model(frame, stream=True, conf=0.25)
+    # Run inference with higher confidence threshold to reduce false positives
+    results = model(frame, stream=True, conf=0.5)
 
     for result in results:
         boxes = result.boxes
@@ -57,10 +57,12 @@ while True:
             cvzone.putTextRect(frame, f'{class_name} {confidence}%', [x1 + 5, y1 + 20],
                                scale=0.7, thickness=1, colorR=color)
 
+
     # Display the frame
     cv2.imshow('Detection Frame', frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+
 
 # Release resources
 cap.release()
