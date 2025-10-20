@@ -7,7 +7,7 @@ from utils import logger
 from PyQt6.QtWidgets import QApplication, QDialog, QPushButton, QFileDialog, QLabel, QLineEdit, QMessageBox
 from PyQt6.uic import loadUi
 from PyQt6.QtCore import Qt
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 
 class InitWindow(QDialog):
     def choose_file(self):
@@ -22,7 +22,7 @@ class InitWindow(QDialog):
             return
 
         # Log file address into log browser
-        self.txt_logs.append(f"Selected file: {file_path.split('\\')[-1]}")
+        self.txt_logs.append(f"Selected file: " + file_path.split('\\')[-1])
 
         file_create = os.stat(file_path).st_mtime
         file_create = datetime.datetime.fromtimestamp(file_create)
