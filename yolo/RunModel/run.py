@@ -7,18 +7,21 @@ import math
 cap = cv2.VideoCapture('Work without a protective mask.mp4')
 
 # Load trained YOLO model
-model = YOLO('../../output/train6/weights/best.pt')
+model = YOLO('../../output/tuning7/weights/best.pt')
 
 # Class names (must match model's training order)
-classnames = ['Helmet', 'Mask', 'No Helmet', 'No Mask', 'Person','Machine']
+classnames = ['Broken Cable', 'Cable', 'Helmet', 'Machine', 'Mask','No Helmet', 'No Mask', 'Person']
 
 # Colors for each class (BGR format)
 colors = {
     'Helmet': (0, 255, 0),        # Green
     'Mask': (0, 255, 0),          # Green
+    'Cable': (0, 255, 0),         # Green
     'No Helmet': (0, 0, 255),     # Red
     'No Mask': (0, 0, 255),       # Red
-    'Person': (255, 0, 0)         # Blue
+    'Broken Cable': (0, 255, 0),  # Green
+    'Person': (255, 0, 0),        # Blue
+    'Machine': (255, 0, 0)        # Blue
 }
 
 # Box thickness per class
@@ -55,7 +58,7 @@ while True:
             # Draw bounding box and label
             cv2.rectangle(frame, (x1, y1), (x2, y2), color, thickness)
             cvzone.putTextRect(frame, f'{class_name} {confidence}%', [x1 + 5, y1 + 20],
-                               scale=0.7, thickness=1, colorR=color)
+                               scale=0.7, thickness=1, colorR=(0, 0, 0))
 
 
     # Display the frame
