@@ -1,10 +1,13 @@
 train: dataset/images/train
 val: dataset/images/val
 
-nc: 5
+nc: 8
 names:
-  0: Helmet
-  1: Mask
-  2: No Helmet
-  3: No Mask
-  4: Person
+  0: Broken Cable
+  1: Cable
+  2: Helmet
+  3: Machine
+  4: Mask
+  5: No Mask
+  6: No Helmet
+  7: Person

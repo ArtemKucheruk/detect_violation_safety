@@ -4,7 +4,7 @@ def main():
     model = YOLO('yolo11s.pt')
     model.train(
         data='dataset.yaml',
-        epochs=100,
+        epochs=70,
         imgsz=640,
         batch=16, # 48 before, I have 4GB VRAM:(
         # TalTech's PC address

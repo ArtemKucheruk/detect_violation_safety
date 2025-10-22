@@ -2,22 +2,34 @@
   "categories": [
     {
       "id": 0,
-      "name": "Helmet"
+      "name": "Broken Cable"
     },
     {
       "id": 1,
-      "name": "Mask"
+      "name": "Cable"
     },
     {
       "id": 2,
-      "name": "No Helmet"
+      "name": "Helmet"
     },
     {
       "id": 3,
-      "name": "No Mask"
+      "name": "Machine"
     },
     {
       "id": 4,
+      "name": "Mask"
+    },
+    {
+      "id": 5,
+      "name": "No Mask"
+    },
+    {
+      "id": 6,
+      "name": "No Helmet"
+    },
+    {
+      "id": 7,
       "name": "Person"
     }
   ],
