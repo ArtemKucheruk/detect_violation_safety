@@ -1,6 +1,8 @@
-pyqt6
+pyqt6 # UI
 ultralytics>=8.0
 opencv-python
 numpy
 pandas
 tqdm
+cvzone
+moviepy # For video duration

@@ -4,10 +4,14 @@ def main():
     model = YOLO('yolo11s.pt')
     model.train(
         data='dataset.yaml',
-        epochs=70,
+        epochs=100,
         imgsz=640,
-        batch=48,
-        project = 'C:/Users/tamsee/PycharmProjects/detect_violation_safety/output'
+        batch=16, # 48 before, I have 4GB VRAM:(
+        # TalTech's PC address
+        #project = 'C:/Users/tamsee/PycharmProjects/detect_violation_safety/output'
+        # default output
+        project = '../output',
+        augment = True,
     )
 
 if __name__ == '__main__':
