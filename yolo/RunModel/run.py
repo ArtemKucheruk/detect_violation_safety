@@ -10,7 +10,7 @@ cap = cv2.VideoCapture('Work without a protective mask.mp4')
 model = YOLO('../../output/tuning7/weights/best.pt')
 
 # Class names (must match model's training order)
-classnames = ['Broken Cable', 'Cable', 'Helmet', 'Machine', 'Mask','No Helmet', 'No Mask', 'Person']
+classnames = ['Broken Cable', 'Cable', 'Helmet', 'Machine', 'Mask', 'No Helmet', 'No Mask', 'Person']
 
 # Colors for each class (BGR format)
 colors = {

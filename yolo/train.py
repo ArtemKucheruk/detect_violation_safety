@@ -14,7 +14,7 @@ def main():
     #     augment=True,
     # )
 
-    model = YOLO('../output/tuning6/weights/best.pt')
+    model = YOLO('../output/tuning7/weights/best.pt')
     model.train(
         data='dataset.yaml',
         epochs=20,

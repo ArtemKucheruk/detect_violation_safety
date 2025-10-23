@@ -3,6 +3,6 @@ Cable
 Helmet
 Machine
 Mask
+No Helmet
 No Mask
-No helmet
 Person
