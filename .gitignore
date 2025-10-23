@@ -16,4 +16,5 @@ logs/
 # folders with the results
 reports/
 video_results/
-
+*.mp4
+*.csv

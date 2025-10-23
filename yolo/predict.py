@@ -5,7 +5,7 @@ import cv2
 
 class LlmAnalyze:
     def __init__(self) -> None:
-        self.model = YOLO("")  # change to the path of the model
+        self.model = YOLO("yolo/best.pt")  # change to the path of the model
 
     def process_video(self, video_file_name: str) -> list[str]:
         video_results = self._predict_results(video_file_name)
@@ -37,15 +37,43 @@ class LlmAnalyze:
             boxes = frame_result.boxes
 
             if boxes is not None and len(boxes) > 0:
-                for i, box in enumerate(boxes):
+                # iterate each detected box and read its own cls/conf robustly
+                for box in boxes:
                     timestamp_seconds = frame_idx / fps
 
-                    violation_info = [  # change this dict to the list
-                        video_file_name,  # file_name
-                        round(timestamp_seconds, 2),  # timestamp of the violation
-                        frame_idx,  # violation frame
-                        frame_result.names[int(box.cls[i])],  # Class name
-                        float(box.conf[i]),  # Confidence score
+                    # box.cls and box.conf may be scalars or 1-element arrays/tensors
+                    # handle both shapes safely
+                    try:
+                        raw_cls = box.cls
+                    except Exception:
+                        raw_cls = getattr(box, "cls", None)
+                    try:
+                        raw_conf = box.conf
+                    except Exception:
+                        raw_conf = getattr(box, "conf", None)
+
+                    if hasattr(raw_cls, "__len__") and len(raw_cls) > 0:
+                        cls_idx = int(raw_cls[0])
+                    else:
+                        cls_idx = int(raw_cls)
+
+                    if hasattr(raw_conf, "__len__") and len(raw_conf) > 0:
+                        conf_val = float(raw_conf[0])
+                    else:
+                        conf_val = float(raw_conf)
+
+                    # frame_result.names is usually a dict or list mapping index -> name
+                    if isinstance(frame_result.names, dict):
+                        class_name = frame_result.names.get(cls_idx, str(cls_idx))
+                    else:
+                        class_name = frame_result.names[cls_idx]
+
+                    violation_info = [
+                        video_file_name,                 # file_name
+                        round(timestamp_seconds, 2),     # timestamp
+                        frame_idx,                       # frame index
+                        class_name,                      # class name
+                        conf_val,                        # confidence
                     ]
                     violations_data.append(violation_info)
 
