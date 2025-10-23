@@ -8,7 +8,7 @@ import math
 cap = cv2.VideoCapture('RunModel/Work without a protective mask.mp4')
 
 # Load trained YOLO model
-model = YOLO('../../output/train/weights/best.pt')
+model = YOLO('../../output/final/weights/best.pt')
 
 # Class names (must match model's training order)
 classnames = ['Broken Cable', 'Cable', 'Helmet', 'Machine', 'Mask', 'No Helmet', 'No Mask', 'Person']

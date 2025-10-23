@@ -6,7 +6,7 @@ import os
 import math
 
 # Config
-MODEL_PATH = '../../output/train/weights/best.pt'
+MODEL_PATH = '../../output/final/weights/best.pt'
 VIOLATION_CLASSES = ['No Helmet', 'No Mask', 'Broken Cable']
 OUTPUT_DIR = 'violation_frames'
 
@@ -33,7 +33,7 @@ thicknesses = {name: 1 for name in CLASSNAMES}
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # Video input
-video_path = 'Work without a protective mask.mp4' # add the variable from the ui or where you get the video location
+video_path = 'A loop of cable on the cable drum at 00_06.mp4' # add the variable from the ui or where you get the video location
 cap = cv2.VideoCapture(video_path)
 fps = cap.get(cv2.CAP_PROP_FPS)
 video_name = os.path.basename(video_path)
